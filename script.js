@@ -1,20 +1,4 @@
-const home = document.querySelector("#home");
-const about = document.querySelector("#about");
-const gallery = document.querySelector("#gallery");
-
 const content = document.querySelector("#content");
-
-const links = [home, about, gallery];
-
-links.forEach((link) => {
-  link.addEventListener("click", (e) => {
-    const page = e.target.id;
-
-    history.pushState({ page }, "", page);
-
-    renderPage(page);
-  });
-});
 
 async function renderPage(page) {
   try {
@@ -23,6 +7,8 @@ async function renderPage(page) {
     if (!res.ok) {
       throw new Error();
     }
+
+    history.pushState({ page }, "", page);
 
     content.innerHTML = await res.text();
   } catch (error) {
