@@ -9,7 +9,7 @@ const links = [home, about, gallery];
 links.forEach((link) => {
   link.addEventListener("click", (e) => {
     const page = e.target.id;
-    console.log(page);
+
     history.pushState({ page }, "", page);
 
     renderPage(page);
@@ -18,7 +18,7 @@ links.forEach((link) => {
 
 async function renderPage(page) {
   try {
-    const res = await fetch(page + ".html");
+    const res = await fetch("pages/" + page + ".html");
 
     if (!res.ok) {
       throw new Error();
