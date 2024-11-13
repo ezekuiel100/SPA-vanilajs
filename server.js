@@ -2,8 +2,6 @@ const http = require("http");
 const path = require("path");
 const fs = require("fs");
 
-const publicDirectory = path.join(__dirname, "./");
-
 // Mapeamento de tipos MIME para diferentes extensões
 const mimeTypes = {
   ".html": "text/html",
@@ -26,25 +24,22 @@ const mimeTypes = {
 http
   .createServer((req, res) => {
     let filePath = path.join(
-      publicDirectory,
+      __dirname,
       req.url === "/" ? "index.html" : req.url
     );
 
-    // Verificando se o arquivo solicitado existe ou é um diretório
     fs.stat(filePath, (err, stat) => {
-      if (err || stat.isDirectory()) {
-        filePath = path.join(publicDirectory, "index.html"); // Se for diretório ou erro, serve o index.html
+      if (err) {
+        filePath = path.join(__dirname, "index.html");
       }
 
-      // Lê o arquivo solicitado
       fs.readFile(filePath, "utf-8", (err, content) => {
         if (err) {
           res.writeHead(500);
           res.end("Erro no servidor");
         } else {
-          // Pega a extensão do arquivo e define o tipo de conteúdo
           const extname = path.extname(filePath);
-          const contentType = mimeTypes[extname] || "application/octet-stream"; // Default para arquivo binário
+          const contentType = mimeTypes[extname] || "application/octet-stream";
 
           res.writeHead(200, { "Content-Type": contentType });
           res.end(content);
