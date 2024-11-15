@@ -34,8 +34,8 @@ nav > a:hover {
 
 main {
   margin: auto;
-  width: 50rem;
-  height: 95vh;
+  width: 65rem;
+  min-height: 95vh;
   padding: 2rem;
   background-color: #fff;
 }

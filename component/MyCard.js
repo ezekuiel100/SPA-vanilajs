@@ -14,6 +14,7 @@ class MyCard extends HTMLElement {
     this.shadowRoot.innerHTML = `
     <style>
       .card {
+        width:fit-content;
         border: 1px solid #ccc;
         border-radius: 8px;
         padding: 16px;
@@ -21,7 +22,8 @@ class MyCard extends HTMLElement {
         display: flex;
         flex-direction: column;
         align-items: center;
-        background-color: #f0f0f0;
+        background-color: #fff;
+        box-shadow: 0px 0px 10px rgb(0,0 ,0 ,0.3)
       }
       
       img {
@@ -36,7 +38,7 @@ class MyCard extends HTMLElement {
       }
     </style>
     
-    <div style="display:flex;">
+    <div style="display:flex; flex-wrap:wrap; justify-content:center">
         ${animals
           .map(
             (animal) => `          
