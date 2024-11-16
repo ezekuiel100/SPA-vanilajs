@@ -1,4 +1,5 @@
 const content = document.querySelector("#content");
+const path = location.pathname;
 
 async function renderPage(page) {
   try {
@@ -27,6 +28,7 @@ window.addEventListener("popstate", (e) => {
 
 function executeScript(content) {
   const scripts = content.getElementsByTagName("script");
+
   Array.from(scripts).forEach((script) => {
     const newScript = document.createElement("script");
 
@@ -43,4 +45,4 @@ function executeScript(content) {
   });
 }
 
-renderPage("home");
+renderPage(path);
