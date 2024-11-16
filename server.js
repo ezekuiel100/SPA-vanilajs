@@ -33,7 +33,7 @@ http
         filePath = path.join(__dirname, "index.html");
       }
 
-      fs.readFile(filePath, "utf-8", (err, content) => {
+      fs.readFile(filePath, (err, content) => {
         if (err) {
           res.writeHead(500);
           res.end("Erro no servidor");

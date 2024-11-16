@@ -1,3 +1,9 @@
+const animals = [
+  { animal: "Dog", image: "images/dog.jpg" },
+  { animal: "Cat", image: "images/cat.jpg" },
+  { animal: "Fish", image: "images/fish.jpg" },
+];
+
 class MyCard extends HTMLElement {
   constructor() {
     super();
@@ -32,9 +38,10 @@ class MyCard extends HTMLElement {
       }
     </style>
     
-    aaaaaaaaaaa
-  
-      `;
+     <div class="card">
+     <img src=${animals[0].image} width="250" />
+        
+      </div>`;
   }
 }
 
