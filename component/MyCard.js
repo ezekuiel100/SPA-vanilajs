@@ -26,6 +26,11 @@ class MyCard extends HTMLElement {
         box-shadow: 0px 0px 10px rgb(0,0 ,0 ,0.3)
       }
       
+      .container{
+      display: flex;
+      justify-content: center
+      }
+
       img {
         margin-bottom: 10px;
         border: 1px solid #999;
@@ -38,9 +43,17 @@ class MyCard extends HTMLElement {
       }
     </style>
     
-     <div class="card">
-     <img src=${animals[0].image} width="250" />
-        
+     <div class="container">
+      ${animals
+        .map(
+          (animal) => `  
+        <div class="card">
+          <img src=${animal.image} width="250" />
+          <span>${animal.animal} </span>
+        </div>
+        `
+        )
+        .join("")}     
       </div>`;
   }
 }
