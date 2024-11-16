@@ -1,9 +1,3 @@
-const animals = [
-  { animal: "Dog", image: "images/dog.jpg" },
-  { animal: "Cat", image: "images/cat.jpg" },
-  { animal: "Fish", image: "images/fish.jpg" },
-];
-
 class MyCard extends HTMLElement {
   constructor() {
     super();
@@ -38,18 +32,8 @@ class MyCard extends HTMLElement {
       }
     </style>
     
-    <div style="display:flex; flex-wrap:wrap; justify-content:center">
-        ${animals
-          .map(
-            (animal) => `          
-          <div class="card">     
-          <img src=${animal.image} width="250" height="250" />       
-          <span>${animal.animal}</span>    
-          </div>
-          `
-          )
-          .join("")}
-      </div>
+    aaaaaaaaaaa
+  
       `;
   }
 }
